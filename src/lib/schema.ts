@@ -55,7 +55,13 @@ export function localBusinessJsonLd() {
       worstRating: 1,
     },
     priceRange: "$$",
-    knowsAbout: ["Montaż klimatyzacji", "Serwis klimatyzacji", SITE_CITY],
+    knowsAbout: [
+      "Montaż kotłów gazowych",
+      "Pompy ciepła",
+      "Kolektory słoneczne",
+      "Instalacje grzewcze",
+      SITE_CITY,
+    ],
   };
 }
 

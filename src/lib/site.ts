@@ -20,7 +20,7 @@ export const PHONE_E164 = preset.phoneE164;
 export const PHONE_HREF = `tel:${PHONE_E164}`;
 export const SMS_HREF = `sms:${PHONE_E164}`;
 
-const WHATSAPP_TEXT = encodeURIComponent("Dzień dobry, proszę o wycenę klimatyzacji.");
+const WHATSAPP_TEXT = encodeURIComponent("Dzień dobry, proszę o wycenę instalacji grzewczej.");
 export const WHATSAPP_HREF = `https://wa.me/${PHONE_E164.replace("+", "")}?text=${WHATSAPP_TEXT}`;
 
 export const EMAIL = preset.email;
@@ -30,18 +30,24 @@ export const ADDRESS = preset.address;
 export const ADDRESS_STREET = preset.addressStreet;
 export const ADDRESS_CITY = preset.addressCity;
 export const ADDRESS_POSTAL = preset.addressPostal;
-export const HOURS = "Pn - Sob: 8:00 - 18:00";
-export const MAPS_URL = `https://maps.google.com/?q=${encodeURIComponent(preset.mapsQuery)}`;
+export const HOURS = preset.hours ?? "Pn - Sob: 8:00 - 18:00";
+export const MAPS_URL =
+  preset.mapsUrl ?? `https://maps.google.com/?q=${encodeURIComponent(preset.mapsQuery)}`;
 
-export const GOOGLE_RATING = 4.9;
-export const GOOGLE_REVIEW_COUNT = 48;
+export const GOOGLE_RATING = preset.googleRating ?? 4.9;
+export const GOOGLE_REVIEW_COUNT = preset.googleReviewCount ?? 48;
 export const GOOGLE_REVIEWS_URL = preset.googleReviewsUrl ?? MAPS_URL;
 export const GOOGLE_WRITE_REVIEW_URL = preset.googleWriteReviewUrl ?? "";
 
 export const SITE_TITLE = preset.siteTitle;
 export const SITE_KEYWORDS = preset.siteKeywords;
-export const SITE_DESCRIPTION = `Montaż klimatyzacji ${CITY_LOCATIVE} i okolicach. Darmowa wycena, szybki dojazd, gwarancja. Zadzwoń: ${PHONE_DISPLAY}.`;
+export const SITE_DESCRIPTION =
+  preset.siteDescription ??
+  `Montaż klimatyzacji ${CITY_LOCATIVE} i okolicach. Darmowa wycena, szybki dojazd, gwarancja. Zadzwoń: ${PHONE_DISPLAY}.`;
 export const SITE_OG_IMAGE = preset.ogImage;
+export const HERO_IMAGE = preset.heroImage ?? preset.ogImage;
+export const LOGO_URL = preset.logoUrl;
+export const FOOTER_TAGLINE = preset.footerTagline ?? "Klimatyzacja i Serwis";
 
 export const GALLERY = preset.gallery;
 export const REVIEWS = preset.reviews;

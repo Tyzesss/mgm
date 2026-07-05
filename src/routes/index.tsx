@@ -7,17 +7,18 @@ import {
   MapPin,
   Clock,
   Wrench,
-  Snowflake,
+  Flame,
   Wind,
   ShieldCheck,
   Zap,
-  Home,
+  Sun,
+  Droplets,
   CheckCircle2,
   Menu,
   X,
   Star,
 } from "lucide-react";
-import heroImage from "@/assets/hero.png";
+import { SiteLogo } from "@/components/SiteLogo";
 import { MobileCarousel } from "@/components/MobileCarousel";
 import { StickyCallBar } from "@/components/StickyCallBar";
 import { HowItWorks } from "@/components/HowItWorks";
@@ -57,6 +58,8 @@ import {
   NIP,
   GALLERY,
   GOOGLE_REVIEWS_URL,
+  HERO_IMAGE,
+  FOOTER_TAGLINE,
 } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
@@ -86,27 +89,28 @@ const NAV_LINKS = [
 ] as const;
 
 const services = [
-  { icon: Snowflake, title: "Montaż klimatyzacji", desc: "Profesjonalny montaż split i multi-split w domach i mieszkaniach." },
-  { icon: Wrench, title: "Serwis i przeglądy", desc: "Coroczne przeglądy, czyszczenie i ozonowanie urządzeń." },
-  { icon: Wind, title: "Rekuperacja", desc: "Dobór i montaż systemów wentylacji mechanicznej z odzyskiem ciepła." },
-  { icon: Zap, title: "Pompy ciepła", desc: "Dobór i instalacja pomp powietrze-woda dla domów jednorodzinnych." },
-  { icon: Home, title: "Klima do biura", desc: "Systemy klimatyzacji dla lokali usługowych i biur." },
-  { icon: ShieldCheck, title: "Naprawa awaryjna", desc: "Szybka reakcja w przypadku awarii – dojazd nawet tego samego dnia." },
+  { icon: Flame, title: "Kotły gazowe Viessmann", desc: "Sprzedaż i montaż kotłów kondensacyjnych wiszących oraz stojących." },
+  { icon: Zap, title: "Pompy ciepła", desc: "Dobór i instalacja pomp powietrze-woda oraz gruntowych dla domów i firm." },
+  { icon: Sun, title: "Kolektory słoneczne", desc: "Montaż instalacji solarnych do ciepłej wody użytkowej i wspomagania C.O." },
+  { icon: Wrench, title: "Instalacje C.O. i wod-kan", desc: "Kompleksowe instalacje centralnego ogrzewania oraz wodno-kanalizacyjne." },
+  { icon: Wind, title: "Rekuperacja i wentylacja", desc: "Systemy wentylacji mechanicznej z odzyskiem ciepła — autoryzacja Viessmann." },
+  { icon: Droplets, title: "Uzdatnianie wody", desc: "Stacje uzdatniania wody i filtry wielofunkcyjne chroniące instalację." },
 ];
 
 const SERVICE_OPTION_GROUPS = [
   {
     label: "Montaż",
     options: [
-      "Klimatyzacja — dom lub mieszkanie",
-      "Klimatyzacja — biuro lub lokal",
-      "Rekuperacja",
+      "Kocioł gazowy — dom lub mieszkanie",
       "Pompa ciepła",
+      "Kolektory słoneczne",
+      "Instalacja C.O. lub wod-kan",
+      "Rekuperacja / wentylacja",
     ],
   },
   {
-    label: "Serwis i naprawa",
-    options: ["Przegląd i konserwacja", "Naprawa awaryjna"],
+    label: "Serwis i modernizacja",
+    options: ["Modernizacja kotłowni", "Przegląd i serwis", "Uzdatnianie wody"],
   },
   {
     label: "Inne",
@@ -117,21 +121,21 @@ const SERVICE_OPTION_GROUPS = [
 const gallery = GALLERY;
 
 const faqs = [
-  { q: "Ile kosztuje montaż klimatyzacji?", a: "Standardowy montaż split 2,5–3,5 kW to koszt od 1800 zł brutto. Cena zależy od długości instalacji i typu urządzenia." },
-  { q: "Jak szybko możecie zamontować klimatyzację?", a: "W sezonie zazwyczaj 3–7 dni od akceptacji wyceny. Poza sezonem nawet w 48h." },
-  { q: "Czy oferujecie darmową wycenę?", a: "Tak. Wycena na miejscu lub zdalnie (na podstawie zdjęć) jest całkowicie bezpłatna i niezobowiązująca." },
-  { q: "Jaką gwarancję dostanę?", a: "5 lat gwarancji na urządzenie (przy corocznym przeglądzie) oraz 2 lata na sam montaż." },
-  { q: "Czy serwisujecie urządzenia kupione gdzie indziej?", a: "Tak, serwisujemy wszystkie popularne marki klimatyzatorów – niezależnie od miejsca zakupu." },
+  { q: "Ile kosztuje montaż kotła gazowego?", a: "Koszt zależy od mocy urządzenia, zakresu prac i długości instalacji. Wycena na miejscu jest bezpłatna i obejmuje dojazd na teren inwestycji." },
+  { q: "Jak szybko możecie zamontować instalację grzewczą?", a: "W zależności od zakresu prac zazwyczaj 3–7 dni od akceptacji wyceny. Przy mniejszych zleceniach często szybciej." },
+  { q: "Czy oferujecie darmową wycenę?", a: "Tak. Wycena na miejscu jest całkowicie bezpłatna i niezobowiązująca — obejmuje dojazd na teren inwestycji." },
+  { q: "Jaką gwarancję dostanę?", a: "Gwarancja producenta na urządzenia Viessmann oraz gwarancja na wykonany montaż — szczegóły omawiamy przy wycenie." },
+  { q: "Czy pomagacie przy dotacjach na pompy ciepła?", a: "Tak, doradzamy w doborze urządzeń i pomagamy w formalnościach związanych z programami dofinansowania." },
 ];
 
 const HERO_BULLETS = [
-  "Certyfikowani technicy F-gaz",
-  "Split, multi-split, pompy ciepła",
-  "Dojazd tego samego dnia przy awarii",
+  "Autoryzowany partner Viessmann",
+  "Kotły, pompy ciepła, rekuperacja",
+  "Darmowa wycena z dojazdem",
 ] as const;
 
 const HERO_FACTS = [
-  { icon: ShieldCheck, text: "Certyfikat F-gaz" },
+  { icon: ShieldCheck, text: "Autoryzacja Viessmann" },
   { icon: Clock, text: "Montaż w 3–7 dni" },
   { icon: CheckCircle2, text: "5 lat gwarancji" },
 ] as const;
@@ -401,10 +405,7 @@ function SiteHeader() {
           className="flex items-center gap-2"
           onClick={() => setMenuOpen(false)}
         >
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-accent text-white shadow-glow">
-            <Snowflake className="h-5 w-5" />
-          </div>
-          <span className="font-bold tracking-tight text-foreground">{SITE_NAME}</span>
+          <SiteLogo />
         </a>
 
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
@@ -471,7 +472,7 @@ function Index() {
         <div className="hero-services-bg" aria-hidden>
           <div
             className="hero-photo"
-            style={{ backgroundImage: `url(${heroImage})` }}
+            style={{ backgroundImage: `url(${HERO_IMAGE})` }}
           />
           <div className="hero-photo-scrim" />
         </div>
@@ -490,7 +491,7 @@ function Index() {
             <h1 className="hero-enter hero-enter-delay-1 mt-3 text-[2.5rem] font-bold leading-[1.06] max-md:mx-auto md:mt-4 md:text-[3.25rem] lg:text-[3.5rem]">
               Montaż i serwis
               <br />
-              klimatyzacji
+              instalacji grzewczych
             </h1>
 
             <p className="hero-enter hero-enter-delay-2 mt-2 text-xl font-medium text-white/85 md:mt-2 md:text-2xl">
@@ -554,7 +555,7 @@ function Index() {
           id="uslugi"
           eyebrow="Usługi"
           title="Nasze usługi"
-          subtitle="Montaż split i multi-split w domach, mieszkaniach i biurach."
+          subtitle="Kotły, pompy ciepła i instalacje C.O. dla domów oraz firm."
           glow={{ x: "22%", y: "58%", strength: 0.035 }}
         >
           <MobileCarousel dark items={services} renderItem={(s) => <ServiceCard s={s} index={services.indexOf(s)} />} />
@@ -689,7 +690,7 @@ function Index() {
       {/* FOOTER */}
       <footer className="relative px-4 pt-10 pb-24 text-foreground md:pb-8">
         <div className="mx-auto max-w-6xl text-center text-sm text-muted-foreground">
-          <p className="font-bold text-foreground">{SITE_NAME} — Klimatyzacja i Serwis</p>
+          <p className="font-bold text-foreground">{SITE_NAME} — {FOOTER_TAGLINE}</p>
           <p className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
             <a href={PHONE_HREF} className="inline-flex items-center gap-1.5 transition-smooth hover:text-foreground">
               <Phone className="h-3.5 w-3.5" /> {PHONE_DISPLAY}
